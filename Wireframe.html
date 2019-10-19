@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Home page of my website">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript,wed development,web design,UX,UI, about me,portfolio,contact">
+  <meta name="author" content="Rosemary Ly">
+  <title>Rosemary Ly | Freelance Web Developer</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<!--end of meta things-->
+
+<body>
+  <!--Nav Bar-------------------------------->
+  <nav>
+    <ul>
+      <li style="letter-spacing: 3px"><a class="active" href="#home"><b>ROSEMARY LY</b></a></li>
+      <li style="float:right"><a href="#Contact">Contact</a></li>
+      <li style="float:right"><a href="#Portfolio">Portfolio</a></li>
+      <li style="float:right"><a href="#AboutMe">About Me</a></li>
+    </ul>
+  </nav>
+  <!--Header image----------------------------------------->
+  <header>
+    <div class="a" id="home">
+      <img src="images/coffeestir.gif" width="100%" height="550px">
+      <h6 style="position: absolute; top: 55%; left: 10px; width: 80%; padding: 4px; background-color: transparent; font-weight: bold; color: #fff; font-weight: 600;">
+        Freelance Web Developer | Foodie | Coffee Lover
+      </h6>
+
+    </div>
+  </header>
+  <!--About Me Section------------------------------------------------------>
+  <div class="b" id="AboutMe">
+    <h1><span>ABOUT ME</h1></span>
+  </div>
+  <div class="b">
+    <img src="images/baliMorningUserpic.jpg" alt="Userpic"
+      style="border-radius:50%;display:block; margin-left: auto; margin-right: auto;" height="250px" width="250px">
+    <br>
+    <p>I'm a freelance web Developer with a love for food, coffee and learning. Writing code and designing websites is actually my second career, before doing this I was an accounts manager for a neuro-technology company.
+      <br><br> I'm a big believer in technology and its ablitity to connect people, and how when it comes to learning and mastering skills in technology, there is no discrimination, just a commitment of time and a willingness to learn. 
+      <br><br>Young or old, as long as one is willing they can master anything. Trust me, for a brief while one of my jobs was teaching people how to clear their cookies and cache over the phone.
+
+      <br><br><strong>
+        Proficient in:</strong> HTML, CSS, JavaScript
+      <br><br><strong>Currently Learning:</strong> Conversational Spanish
+      <br><br><strong>Education:</strong> York University - BA Hons Psychology | York University -
+      Full-Stack Development  Certificate
+      <br><br><strong> Notable facts:</strong> 10 years of customer service experience, quick learner, self-starter
+    </p>
+  </div>
+  <!--Portfolio------------------------------------------------------------------------------->
+  <div class="c" id="Portfolio">
+    <h1><span>PORTFOLIO</span></h1>
+    <p style="text-align: center"> Click on the image to expand!</p>
+    <img class="myImages" id="myImg" src="images/cupcakewebdesign.png" alt="Cupcake Store - WireFrame One | Sept '19" width="300"
+      height="200">
+    <img class="myImages" id="myImg" src="images/FS1000_GroupProject.png" alt="Vacation Rental Website | Oct '19" width="300"
+      height="200">
+    <img class="myImages" id="myImg" src="images/dogmodelwebsite.png" alt="Dog Model Portfolio Website | Sept '19" width="300"
+      height="200">
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption"></div>
+    </div>
+    <script>
+      // create references to the modal...
+      var modal = document.getElementById('myModal');
+      // to all images -- note I'm using a class!
+      var images = document.getElementsByClassName('myImages');
+      // the image in the modal
+      var modalImg = document.getElementById("img01");
+      // and the caption in the modal
+      var captionText = document.getElementById("caption");
+
+      // Go through all of the images with our custom class
+      for (var i = 0; i < images.length; i++) {
+        var img = images[i];
+        // and attach our click listener for this image.
+        img.onclick = function (evt) {
+          console.log(evt);
+          modal.style.display = "block";
+          modalImg.src = this.src;
+          captionText.innerHTML = this.alt;
+        }
+      }
+
+      var span = document.getElementsByClassName("close")[0];
+
+      span.onclick = function () {
+        modal.style.display = "none";
+      }
+    </script>
+  </div>
+  <!----------------------------Contact section--------------------------------------->
+  <div class="c" id ="Contact">
+   <h1><span>Contact Me</span></h1> 
+  </div>
+  <div class="container">
+      <form name ="myForm" action="action_page.php" onsubmit="return validateForm()" method="post">
+    
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+    
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+    
+        <label for="email"> Email Address </label>
+        <input type="email" id="email" name="email" placeholder="sample@email.com" required>
+    
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    
+        <input type="submit" value="Submit" button onclick="validateform()"> <!--On submit, open a snackbar that tells ppl their msg has been sent-->
+        <div id="snackbar">Your Message has been sent! I'll be in touch with you shortly. Have a wonderful day!</div>
+                  <!--Check if message is blank, if message contains empty string open an alert that tells them to write something-->
+        <script>
+            function validateForm() {
+              var x = document.forms["myForm"]["subject"].value;
+              if (x == "") {
+                alert("Hello there, you forgot to write a message! If you're dropping by, don't forget to say hi!");
+                return false;
+              }
+            else {x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+          }
+            }
+          </script>
+   
+      </form>
+    </div>    
+<div class="footer">
+<a href="https://github.com/RosemaryLy"><img src="images/GitHub-Mark-64px.png" height="25px"> </a>
+Rosemary Ly
+</div>  
+</body>
+
+</html>
